@@ -43,22 +43,16 @@ Init(void) {
     __HAL_RCC_QSPI_FORCE_RESET();  //completely reset peripheral
     __HAL_RCC_QSPI_RELEASE_RESET();
 
-    MX_QUADSPI_Init();
-
     if (CSP_QUADSPI_Init() != HAL_OK) {
         __set_PRIMASK(1); //disable interrupts
         return LOADER_FAIL;
     }
-
 
     if (CSP_QSPI_EnableMemoryMappedMode() != HAL_OK) {
         __set_PRIMASK(1); //disable interrupts
         return LOADER_FAIL;
     }
 
-    /*Trigger read access before HAL_QSPI_Abort() otherwise abort functionality gets stuck*/
-    uint32_t a = *(uint32_t*) 0x90000000;
-    a++;
 
     __set_PRIMASK(1); //disable interrupts
     return LOADER_OK;

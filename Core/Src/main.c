@@ -90,51 +90,6 @@ int main(void)
   MX_QUADSPI_Init();
   /* USER CODE BEGIN 2 */
 
-  CSP_QUADSPI_Init();
-
-  uint8_t tx[16] = {
-      0x11, 0x22, 0x33, 0x44,
-      0x55, 0x66, 0x77, 0x88,
-      0x99, 0xAA, 0xBB, 0xCC,
-      0xDD, 0xEE, 0x12, 0x34
-  };
-
-  uint8_t rx[16] = {0};
-
-  if (CSP_QSPI_WriteMemory(tx, 0x00000000, sizeof(tx)) != HAL_OK)
-  {
-      return HAL_ERROR;
-  }
-
-  if (CSP_QSPI_ReadMemory(rx, 0x00000000, sizeof(rx)) != HAL_OK)
-  {
-      return HAL_ERROR;
-  }
-
-  /*
-  if (CSP_QSPI_EraseSector(0x00000000, 0x00000000) != HAL_OK)
-  {
-      return HAL_ERROR;
-  }
-
-  uint8_t rx2[16] = {0};
-
-  if (CSP_QSPI_ReadMemory(rx2, 0x00000000, sizeof(rx)) != HAL_OK)
-  {
-      return HAL_ERROR;
-  }
-  */
-
-  if (CSP_QSPI_EnableMemoryMappedMode() != HAL_OK)
-  {
-      return HAL_ERROR;
-  }
-
-  volatile uint8_t *qspi_mem = (volatile uint8_t *)0x90000000;
-  uint8_t a0 = qspi_mem[0];
-  uint8_t a1 = qspi_mem[1];
-  uint8_t a2 = qspi_mem[2];
-  uint8_t a3 = qspi_mem[3];
   /* USER CODE END 2 */
 
   /* Infinite loop */
