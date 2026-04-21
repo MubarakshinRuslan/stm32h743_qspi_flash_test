@@ -61,6 +61,7 @@ C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin\ExternalLo
 4. Сгенерированный `.stldr` файл появится в папке `Debug` или `Release`.
 
 ## 📁 Структура репозитория
+```
 ├── Core/ # Исходники загрузчика (Init, Erase, Write, Read)
 ├── Drivers/ # CMSIS и HAL драйверы STM32H7
 ├── .settings/ # Настройки среды
@@ -68,6 +69,7 @@ C:\Program Files\STMicroelectronics\STM32Cube\STM32CubeProgrammer\bin\ExternalLo
 ├── linker.ld # Скрипт линковки для External Loader
 ├── h743_flash.stldr # ✅ Готовый загрузчик (можно использовать сразу)
 └── README.md
+```
 
 ## 📜 Лицензия и авторство
 
